@@ -1,7 +1,9 @@
 package fun
 
-import "fmt"
+import (
+	"fmt"
+)
 
-func Ok(){
+func Ok() {
 	fmt.Println("fun.ok")
 }
