@@ -9,5 +9,7 @@ func main() {
 	fun.Ok()
 	fmt.Println(basic.OutAbsPath())
 	basic.SliceTest()
-
+	basic.TestMap()
+	basic.PointerCalculate()
+	basic.PointerCalSettingValue()
 }
