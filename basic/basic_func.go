@@ -5,6 +5,8 @@ import (
 	"os"
 	"os/exec"
 	"unsafe"
+
+	"github.com/axgle/mahonia"
 )
 
 // init 包中的init会被首先调用，用于初始化
@@ -99,4 +101,31 @@ func PointerCalSettingValue() {
 
 	fmt.Println(*u)
 
+}
+
+func ConvertToString(src string, srcCode string, dstCode string) string {
+	scrCoder := mahonia.NewDecoder(srcCode)
+	scrString := scrCoder.ConvertString(src)
+	_, dstString, _ := mahonia.NewDecoder(dstCode).Translate([]byte(scrString), true)
+	return string(dstString)
+}
+
+func TestPanic() {
+	func() {
+		defer func() {
+			if err := recover(); err != nil {
+				println(err.(string)) // 将 interface{} 转型为具体类型。
+			}
+		}()
+		panic("panic error!")
+	}()
+}
+
+func Try(fun func(), handler func(interface{})) {
+	defer func() {
+		if err := recover(); err != nil {
+			handler(err)
+		}
+	}()
+	fun()
 }
