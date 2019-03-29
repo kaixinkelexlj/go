@@ -30,4 +30,6 @@ func main() {
 	default:
 	}
 	basic.OpenFile("/Users/didi/login.sh")
+	basic.Reflect()
+	basic.DoTestReflectStruct()
 }
