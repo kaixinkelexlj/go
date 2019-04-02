@@ -4,6 +4,7 @@ import (
 	"fmt"
 
 	basic "./basic"
+	jsonx "./jsonfun"
 )
 
 func main() {
@@ -32,4 +33,5 @@ func main() {
 	basic.OpenFile("/Users/didi/login.sh")
 	basic.Reflect()
 	basic.DoTestReflectStruct()
+	jsonx.TestStructJSON()
 }
